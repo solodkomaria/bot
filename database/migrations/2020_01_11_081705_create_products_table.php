@@ -19,6 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('description',1000)->default('');
             $table->string('img_url',1000)->default('');
             $table->double('price')->default(0);
+            $table->double('current_count')->default(0);
+            $table->double('summary_count')->default(0);
             $table->timestamps();
         });
 

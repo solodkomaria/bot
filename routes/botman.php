@@ -22,8 +22,10 @@ $botman->hears('Hi', function ($bot) {
 
 });
 $botman->hears('1', function ($bot) {
-    $bot->reply("Tell me more!1");
-    $bot->reply("And even more");
+    $products=\App\Product::all();
+    foreach ($products as $product)
+        $bot->reply($product->name);
+
 });
 
 $botman->hears('2', function ($bot) {
