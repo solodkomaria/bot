@@ -12,4 +12,8 @@ class Category extends Model
         'description',
         'img_url'
     ];
+    public function products()
+{
+    return $this->belongsToMany('App\Product',"product_in_categories");
+}
 }

@@ -27,7 +27,12 @@ $botman->hears('1', function ($bot) {
         $bot->reply($product->name. ' ' .$product->img_url);
 
 });
+$botman->hears('3', function ($bot) {
+    $categories=\App\Category::all();
+    foreach ($categories as $category)
+        $bot->reply($category->title. ' ' .$category->img_url);
 
+});
 $botman->hears('2', function ($bot) {
     $bot->reply("Tell me more!2");
     $bot->reply("And even more");

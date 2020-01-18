@@ -25,6 +25,24 @@ class DatabaseSeeder extends Seeder
                 'current_count' => 111111,
                 'summary_count' => 111111
             ]);
+        $arr2=['cat1','cat2'];
+        foreach ($arr2 as $key=>$val){
+            $cat=\App\Category::create(
+                ['title' => $val,
+                'description' => 'n1',
+                'img_url' =>'https://simple-fauna.ru/wp-content/uploads/2018/09/donskoj-sfinks.jpg'
+                ]);
+            for ($i = 0; $i < 4; $i++)
+                $prod=\App\Product::create([
+                    'name' => 'сфинкс' . $i,
+                    'description' => 'n1',
+                    'img_url' => $arr[$i],
+                    'price' => 111111,
+                    'current_count' => 111111,
+                    'summary_count' => 111111
+                ]);
+            $cat->products()->attach($prod->id);
+        }
 
     }
 }
