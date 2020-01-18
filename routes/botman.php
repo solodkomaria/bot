@@ -28,9 +28,16 @@ $botman->hears('1', function ($bot) {
 
 });
 $botman->hears('3', function ($bot) {
+
     $categories=\App\Category::all();
     foreach ($categories as $category)
         $bot->reply($category->title. ' ' .$category->img_url);
+
+});
+$botman->hears('/cat ([0-9]+)', function ($bot,$id) {
+    $products=(\App\Category::with(['products'])->find($id))->products;
+    foreach ($products as $product)
+        $bot->reply($product->name. ' ' .$product->img_url);
 
 });
 $botman->hears('2', function ($bot) {
