@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         ];
         for ($i = 0; $i < 4; $i++)
             \App\Product::create([
-                'name' => 'n1' . $i,
+                'name' => 'сфинкс' . $i,
                 'description' => 'n1',
                 'img_url' => $arr[$i],
                 'price' => 111111,

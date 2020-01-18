@@ -24,7 +24,7 @@ $botman->hears('Hi', function ($bot) {
 $botman->hears('1', function ($bot) {
     $products=\App\Product::all();
     foreach ($products as $product)
-        $bot->reply($product->name);
+        $bot->reply($product->name.$product->img_url);
 
 });
 
