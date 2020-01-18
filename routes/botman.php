@@ -35,7 +35,7 @@ $botman->hears('3', function ($bot) {
 
 });
 $botman->hears('/cat ([0-9]+)', function ($bot,$id) {
-    $products=(\App\Category::with(['products'])->find($id))->products;
+    $products=(\App\Category::with(['products'])->find($id))->products()->all();
     foreach ($products as $product)
         $bot->reply($product->name. ' ' .$product->img_url);
 

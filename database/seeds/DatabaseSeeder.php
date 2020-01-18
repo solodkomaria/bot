@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             'https://zooclub.ru/attach/43000/43756.jpg',
             'https://petsi.net/images/catbreed/big/donskoy-sfinks.jpg'
         ];
-        for ($i = 0; $i < 4; $i++)
+        /*for ($i = 0; $i < 4; $i++)
             \App\Product::create([
                 'name' => 'сфинкс' . $i,
                 'description' => 'n1',
@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
                 'price' => 111111,
                 'current_count' => 111111,
                 'summary_count' => 111111
-            ]);
+            ]);*/
         $arr2=['cat1','cat2'];
         foreach ($arr2 as $key=>$val){
             $cat=\App\Category::create(
