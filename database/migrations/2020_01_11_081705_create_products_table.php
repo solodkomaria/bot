@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->double('current_count')->default(0);
             $table->double('summary_count')->default(0);
             $table->timestamps();
+            $table->unsignedInteger('category_id')->nullable();
         });
 
     }

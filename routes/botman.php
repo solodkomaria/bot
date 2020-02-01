@@ -10,6 +10,14 @@ $botman = resolve('botman');
 $botman->hears('Hi', function ($bot) {
     $bot->reply('Hello!');
 
+    $mybot = new \App\classes\MyBot();
+    $mybot->setCoplor("olive");
+
+    $bot->reply($mybot->color);
+    $bot->reply($mybot->name);
+    $bot->reply($mybot->price);
+    $bot->reply($mybot->img);
+
     $question = Question::create('Do you need a database?')
         ->fallback('Unable to create a new database')
         ->callbackId('create_database')

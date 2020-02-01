@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
                 'current_count' => 111111,
                 'summary_count' => 111111
             ]);*/
-        $arr2=['cat1','cat2'];
+        $arr2=['cat1'];
         foreach ($arr2 as $key=>$val){
             $cat=\App\Category::create(
                 ['title' => $val,
@@ -39,7 +39,9 @@ class DatabaseSeeder extends Seeder
                     'img_url' => $arr[$i],
                     'price' => 111111,
                     'current_count' => 111111,
-                    'summary_count' => 111111
+                    'summary_count' => 111111,
+                    'category_id' => $cat->id,
+
                 ]);
             $cat->products()->attach($prod->id);
         }
