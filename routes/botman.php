@@ -32,7 +32,17 @@ $botman->hears('Hi', function ($bot) {
 $botman->hears('1', function ($bot) {
     $products=\App\Product::all();
     foreach ($products as $product)
-        $bot->reply($product->name. ' ' .$product->img_url);
+    {
+        $attachment = new Image($product->img_url);
+
+        // Build message object
+        $message = OutgoingMessage::create($product->name)
+            ->withAttachment($attachment);
+
+        // Reply message object
+        $bot->reply($message);
+    }
+
 
 });
 $botman->hears('3', function ($bot) {
