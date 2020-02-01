@@ -13,12 +13,12 @@ $botman->hears('Hi', function ($bot) {
     $mybot = new \App\classes\MyBot();
     $mybot->setCoplor("olive");
 
-    $bot->reply($mybot->color);
-    $bot->reply($mybot->name);
-    $bot->reply($mybot->price);
+    $bot->reply('Цвет '.$mybot->color);
+    $bot->reply('Имя '.$mybot->name);
+    $bot->reply('Цена '.$mybot->price);
     $bot->reply($mybot->img);
 
-    $question = Question::create('Do you need a database?')
+    $question = Question::create('Другие коты?')
         ->fallback('Unable to create a new database')
         ->callbackId('create_database')
         ->addButtons([
