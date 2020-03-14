@@ -6,6 +6,7 @@ use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
+
 $botman = resolve('botman');
 
 $botman->hears('Hi', function ($bot) {
@@ -18,12 +19,7 @@ $botman->hears('Hi', function ($bot) {
     $bot->reply('Имя '.$mybot->name);
     $bot->reply('Цена '.$mybot->price);
     $bot->reply($mybot->img);
-    $tmp='Цвет '.$mybot->color."\nИмя ".$mybot->name."\nЦена ".$mybot->price;
-    Telegram::sendMessage([
-        "chat_id" => '-1001207376632',
-        "text" => $tmp,
-        'parse_mode' => 'Markdown',
-    ]);
+
 
     $question = Question::create('Другие коты?')
         ->fallback('Unable to create a new database')
@@ -34,6 +30,19 @@ $botman->hears('Hi', function ($bot) {
         ]);
 
     $bot->reply($question);
+
+    $tmp='Цвет ';
+    Telegram::sendMessage([
+        "chat_id" => '-1001207376632',
+        "text" => $tmp,
+        'parse_mode' => 'Markdown',
+    ]);
+
+    Telegram::sendPhoto([
+        "chat_id" => '-1001207376632',
+        "photo" =>\Telegram\Bot\FileUpload\InputFile::create($mybot->img,"test.jpg") ,
+        'parse_mode' => 'Markdown',
+    ]);
 
 });
 $botman->hears('1', function ($bot) {
