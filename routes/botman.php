@@ -78,7 +78,7 @@ $botman->hears('img', function ( $bot) {
 
     Telegram::sendPhoto([
         "chat_id" => '-1001207376632',
-        "photo" =>InputFile::create('https://vignette.wikia.nocookie.net/fictional-warriors-cats/images/b/b9/1564314090_3.jpg',"test.jpg") ,
+        "photo" =>new InputFile('https://vignette.wikia.nocookie.net/fictional-warriors-cats/images/b/b9/1564314090_3.jpg') ,
         'parse_mode' => 'Markdown',
     ]);
 
