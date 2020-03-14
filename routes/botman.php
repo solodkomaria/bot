@@ -4,6 +4,7 @@ use BotMan\BotMan\Messages\Attachments\Image;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use BotMan\BotMan\Messages\Outgoing\Question;
+use Telegram\Bot\FileUpload\InputFile;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
 
@@ -31,18 +32,18 @@ $botman->hears('Hi', function ($bot) {
 
     $bot->reply($question);
 
-    $tmp='Цвет ';
+
     Telegram::sendMessage([
         "chat_id" => '-1001207376632',
-        "text" => $tmp,
+        "text" => 'Имя '.$mybot->name,
         'parse_mode' => 'Markdown',
     ]);
 
-    /*Telegram::sendPhoto([
+    Telegram::sendPhoto([
         "chat_id" => '-1001207376632',
-        "photo" =>\Telegram\Bot\FileUpload\InputFile::create($mybot->img,"test.jpg") ,
+        "photo" =>InputFile::create($mybot->img) ,
         'parse_mode' => 'Markdown',
-    ]);*/
+    ]);
 
 });
 $botman->hears('1', function ($bot) {
