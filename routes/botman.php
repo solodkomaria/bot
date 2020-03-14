@@ -38,11 +38,11 @@ $botman->hears('Hi', function ($bot) {
         'parse_mode' => 'Markdown',
     ]);
 
-    Telegram::sendPhoto([
+    /*Telegram::sendPhoto([
         "chat_id" => '-1001207376632',
         "photo" =>\Telegram\Bot\FileUpload\InputFile::create($mybot->img,"test.jpg") ,
         'parse_mode' => 'Markdown',
-    ]);
+    ]);*/
 
 });
 $botman->hears('1', function ($bot) {
