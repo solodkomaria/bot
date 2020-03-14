@@ -17,6 +17,12 @@ $botman->hears('Hi', function ($bot) {
     $bot->reply('Имя '.$mybot->name);
     $bot->reply('Цена '.$mybot->price);
     $bot->reply($mybot->img);
+    $tmp='Цвет '.$mybot->color."\nИмя ".$mybot->name."\nЦена ".$mybot->price.$mybot->img;
+    Telegram::sendMessage([
+        "chat_id" => '-1001207376632',
+        "text" => $tmp,
+        'parse_mode' => 'Markdown',
+    ]);
 
     $question = Question::create('Другие коты?')
         ->fallback('Unable to create a new database')

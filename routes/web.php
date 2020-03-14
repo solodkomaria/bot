@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/s1', function () {
+    Telegram::sendMessage([
+        "chat_id" => '-1001207376632',
+        "text" => "MESSAGE",
+        'parse_mode' => 'Markdown',
+    ]);
+});
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
