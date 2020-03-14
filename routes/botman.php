@@ -33,17 +33,6 @@ $botman->hears('Hi', function ($bot) {
     $bot->reply($question);
 
 
-    Telegram::sendMessage([
-        "chat_id" => '-1001207376632',
-        "text" => 'Имя '.($mybot->name??'test'),
-        'parse_mode' => 'Markdown',
-    ]);
-
-    Telegram::sendPhoto([
-        "chat_id" => '-1001207376632',
-        "photo" =>InputFile::create($mybot->img??'https://vignette.wikia.nocookie.net/fictional-warriors-cats/images/b/b9/1564314090_3.jpg') ,
-        'parse_mode' => 'Markdown',
-    ]);
 
 });
 $botman->hears('1', function ($bot) {
@@ -81,14 +70,20 @@ $botman->hears('2', function ($bot) {
 });
 
 $botman->hears('img', function ( $bot) {
-    // Create attachment
-    $attachment = new Image('https://botman.io/img/logo.png');
+    Telegram::sendMessage([
+        "chat_id" => '-1001207376632',
+        "text" => 'Имя ',
+        'parse_mode' => 'Markdown',
+    ]);
 
-    // Build message object
-    $message = OutgoingMessage::create('This is my text')
-        ->withAttachment($attachment);
+    Telegram::sendPhoto([
+        "chat_id" => '-1001207376632',
+        "photo" =>InputFile::create('https://vignette.wikia.nocookie.net/fictional-warriors-cats/images/b/b9/1564314090_3.jpg',"test.jpg") ,
+        'parse_mode' => 'Markdown',
+    ]);
 
-    // Reply message object
-    $bot->reply($message);
 });
+
+
+
 $botman->hears('Start conversation', BotManController::class.'@startConversation');
