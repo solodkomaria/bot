@@ -35,13 +35,13 @@ $botman->hears('Hi', function ($bot) {
 
     Telegram::sendMessage([
         "chat_id" => '-1001207376632',
-        "text" => 'Имя '.$mybot->name,
+        "text" => 'Имя '.($mybot->name??'test'),
         'parse_mode' => 'Markdown',
     ]);
 
     Telegram::sendPhoto([
         "chat_id" => '-1001207376632',
-        "photo" =>InputFile::create($mybot->img) ,
+        "photo" =>InputFile::create($mybot->img??'https://vignette.wikia.nocookie.net/fictional-warriors-cats/images/b/b9/1564314090_3.jpg') ,
         'parse_mode' => 'Markdown',
     ]);
 
